@@ -7,6 +7,7 @@ class Bank:
     def __init__(self):
         self.balance = 0
         self.lock = Lock()
+        self.lock.acquire()
 
     def deposit(self):
         for i in range(100):
@@ -28,6 +29,7 @@ class Bank:
                 print(f'Запрос отклонён, недостаточно средств')
                 self.lock.acquire()
             sleep(0.001)
+
 
 bk = Bank()
 
